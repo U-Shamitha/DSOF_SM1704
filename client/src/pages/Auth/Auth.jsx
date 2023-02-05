@@ -26,9 +26,9 @@ const Auth = () => {
     e.preventDefault();
 
     if(isSignUp){
-      dispatch(signup({name,email,password}), navigate)
+      dispatch(signup({name,email,password}, navigate));
     }else{
-      dispatch(login({email, password}), navigate)
+      dispatch(login({email, password}, navigate));
     }
     
     if(isSignUp & !name){
