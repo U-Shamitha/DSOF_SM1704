@@ -33,7 +33,8 @@
     line-height: 22px;
     white-space: pre-line;
 }
-.question-details-container .question-details-tags{
+.question-details-container .question-details-tags
+{
     display: flex;
     align-items: center;
     justify-content: space-between;

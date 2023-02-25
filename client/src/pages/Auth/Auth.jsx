@@ -26,6 +26,7 @@ const Auth = () => {
     e.preventDefault();
 
     if(isSignUp){
+      // console.log("in Auth.jsx sign up")
       dispatch(signup({name,email,password}, navigate));
     }else{
       dispatch(login({email, password}, navigate));
