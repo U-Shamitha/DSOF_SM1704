@@ -77,7 +77,7 @@ const QuestionsDetails = () => {
     const dispatch = useDispatch();
     const User = useSelector((state) => (state.currentUserReducer));
     const location = useLocation(); // console.log(location);
-    const url = "http://localhost:3000"
+    const url = "https://stackoverflow-x0yi.onrender.com"
 
     const handlePostAns = (e, answerLength) => {
         e.preventDefault();
