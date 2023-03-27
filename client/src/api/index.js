@@ -32,5 +32,3 @@ export const updateQuestionsLeft = (userId, quesLeft) => API2.patch('/user/updat
 export const updateValidDay = (userId, validDay) => API2.patch('/user/updatevalidday', { userId, validDay })
 export const updateMode = (userId, mode) => API2.patch('/user/updatemode', { userId, mode })
 
-//openai chatbot
-export const createChatCompletion = (input) => API2.post('create-chat-completion',{ input })

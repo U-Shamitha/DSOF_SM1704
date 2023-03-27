@@ -129,6 +129,8 @@ const Message = ({ message }) => (
 
 export default function ShowSubscription() {
 
+  const { successq, session_idq, typeq } = useParams();
+
   const user = useSelector((state) => state.currentUserReducer);
   // console.log(user);
   // const type = useSelector((state) => state.typeReducer)
@@ -146,20 +148,36 @@ export default function ShowSubscription() {
     const query = new URLSearchParams(window.location.search);
     console.log(query.get(success));
 
-    if (query.get('success')) {
+    // if (query.get('success')) {
+    //   setSuccess(true);
+    //   setSessionId(query.get('session_id'));
+    // }
+
+    // if (query.get('canceled')) {
+    //   setSuccess(false);
+    //   setMessage(
+    //     "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
+    //   );
+    // }
+
+    // if (query.get('type')) {
+    //   setType(query.get('type'))
+    // }
+
+    if (successq) {
       setSuccess(true);
-      setSessionId(query.get('session_id'));
+      setSessionId(session_idq);
     }
 
-    if (query.get('canceled')) {
+    if (canceledq) {
       setSuccess(false);
       setMessage(
         "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
       );
     }
 
-    if (query.get('type')) {
-      setType(query.get('type'))
+    if (typeq) {
+      setType(typeq)
     }
   }, [sessionId]);
 
