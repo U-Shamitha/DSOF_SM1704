@@ -105,9 +105,9 @@ function OpenaiChatbot() {
                 throw new Error("Something went wrong");
               }
           
-              const { message } = await res.json();
-              console.log(message);
-              setAnswer(message);
+              const msg = await res.json();
+              console.log(msg.message);
+              setAnswer(msg.message);
 
           } catch (err) {
             console.error(err, "err");
