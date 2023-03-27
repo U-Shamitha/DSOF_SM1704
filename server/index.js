@@ -60,7 +60,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-const YOUR_DOMAIN = 'http://localhost:3000/Subscription';
+const YOUR_DOMAIN = 'https://stackoverflow-client-kgjp.onrender.com/Subscription';
 
 app.post('/create-checkout-session', async (req, res) => {
   console.log(req.body.lookup_key)
@@ -209,7 +209,8 @@ app.post('/create-chat-completion', async (req, res) => {
     messages: [{role: "user", content: req.body.prompt }],
   });
   console.log(completion.data.choices[0].message);
-  res.status(200).json({message : completion.data.choices[0].message.content});
+  const content = completion.data.choices[0].message.content
+  res.status(200).json({message : content});
 }catch(err){
   console.log(err)
 }

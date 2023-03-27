@@ -86,7 +86,7 @@ function OpenaiChatbot() {
     }
 
 
-    const sendPrompt = async (event) => {
+    const sendPrompt = (event) => async () => {
         if (event.key !== "Enter") {
           return;
         }
@@ -110,7 +110,7 @@ function OpenaiChatbot() {
               setAnswer(message);
 
           } catch (err) {
-            console.error(err, "err");
+            console.error(err.message, "err");
           }finally {
             setLoading(false);
           }
