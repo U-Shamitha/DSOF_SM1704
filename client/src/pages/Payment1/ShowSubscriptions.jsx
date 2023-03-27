@@ -9,7 +9,8 @@ import { setCurrentUser } from '../../actions/CurrentUser';
 
 // import './App.css';
 
-const server = 'http://localhost:5000'
+// const server = 'http://localhost:5000'
+const server = 'https://stackoverflow-server-1ekf.onrender.com'
 
 const ProductDisplay = () => {
 
