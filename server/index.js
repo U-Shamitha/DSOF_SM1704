@@ -88,7 +88,7 @@ console.log(prices);
       },
     ],
     mode: 'subscription',
-    success_url: `${YOUR_DOMAIN}/true/session_id={CHECKOUT_SESSION_ID}/${req.body.type}`,
+    success_url: `${YOUR_DOMAIN}/?success=true&session_id={CHECKOUT_SESSION_ID}&type=${req.body.type}`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
   });
 
