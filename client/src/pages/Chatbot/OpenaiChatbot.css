@@ -1,0 +1,123 @@
+.app {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+  
+  .app-container {
+    width: 1000px;
+    max-width: 100%;
+    max-height: 70%;
+    padding: 20px 20px;
+    margin-top: 20%;
+    /* text-align: center; */
+  }
+  
+  .spotlight__wrapper {
+    border-radius: 12px;
+    border: 1px solid #dfe1e5;
+    margin: auto;
+    width: 600px;
+    max-width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  
+  .spotlight__wrapper:hover,
+  .spotlight__wrapper:focus {
+    /* display: flex; */
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+    border-color: rgba(223, 225, 229, 0);
+  }
+  
+  .spotlight__input {
+    min-height: 56px;
+    width:500px;
+    max-width: 100%;
+    border: 0;
+    border-radius: 12px;
+    outline: none;
+    font-size: 1rem;
+    color: #000;
+    background-position: left 1rem center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: 1rem;
+    padding-left: 3rem;
+    overflow: hidden;
+    float: left;
+  }
+  
+  .spotlight__input::placeholder {
+    line-height: 1.5em;
+  }
+  
+  .spotlight__answer {
+    min-height: 115px;
+    line-height: 1.5em;
+    letter-spacing: 0.1px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spotlight__answer p::after {
+    content: "";
+    width: 2px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    background: black;
+    display: inline-block;
+    animation: cursor-blink 1s steps(2) infinite;
+  }
+  
+  @keyframes cursor-blink {
+    0% {
+      opacity: 0;
+    }
+  }
+
+  .spotlight__otp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    max-width:-webkit-calc(100% - 50px);
+    height: fit-content;
+    /* font-size: 1.2rem; */
+    background-color: whitesmoke;
+    border-radius: 5px;
+    margin-top: 100px;
+    padding: 10%;
+
+  }
+
+  .spotlight__otp div{
+    margin-top: 1.5rem;    
+  }
+
+  .spotlight__otp div input{
+ 
+    max-width: -webkit-calc(100% - 30px);
+    width: 96%;
+    height: 2rem;
+    padding-left: 15px;
+    margin: 0;
+
+
+  }
+
+  .spotlight__otp div button{
+    padding: 5px;
+    width: 70px;
+    margin: 2px;
+  }

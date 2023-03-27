@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .navbar{
@@ -23,7 +24,7 @@
 }
 
 .nav-logo{
-    padding: 5px 25px;
+    padding: 5px 20px;
 }
 
 .nav-item{
@@ -47,13 +48,15 @@
 }
 
 .navbar form{
+    display: flex;
     flex-grow:1;
     padding: 0px 12px;
     position: relative;
 }
 
 .navbar form input {
-    min-width: 85%;
+    min-width: 65%;
+    max-width: 90%;
     margin: 0;
     padding: 8px 10px 8px 32px;
     font-size: 13px;
@@ -78,4 +81,138 @@
 
 .nav-links:hover{
     background-color: #d3e4eb;
+}
+
+
+
+.nav-bars{
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+}
+
+.leftSideBarMenuHide{
+    display: none;
+}
+
+
+
+@media  screen and (max-width: 320px){
+    /* .navbar form {
+        display: none;
+    } */
+    .navbar{
+        display:contents;
+        justify-content: space-between;
+    }
+    .navbar form{
+        margin-right: 2px !important;
+    }
+    .navbar form input{
+        width: 8px !important;
+        margin-right: 10px !important;
+        flex-grow: 0;
+    }
+    .avatar{
+        margin-left: 5px !important;
+    }
+
+ 
+
+
+
+}
+
+ 
+@media  screen and (max-width: 460px){
+ 
+    .nav-hide{
+        display: none;
+    }
+    .nav-bars{
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+
+    .navbar form{
+        margin-right: 5px;
+    }
+
+    .navbar form input{
+        width: 25px;
+        padding: 8px 5px 8px 32px;
+        flex-grow:0;
+        margin-right: 10px;
+    }
+    .avatar{
+        margin-right:2px;
+        margin-left: 4px;
+    }
+
+}
+
+@media  (min-width:460px) and (max-width: 790px){
+    
+    .nav-hide{
+        display: none;
+    }
+
+    .navbar form input{
+        min-width: 65%;
+        flex-grow:2;
+    }
+    .avatar{
+        margin-right:20px;
+    }
+
+}
+
+@media  (min-width: 790px) and (max-width: 830px){
+    
+
+    .nav-bars{
+        display: none;
+    }
+    .nav-btn{
+        padding: 10px 10px;
+    }
+    
+    .avatar{
+        margin:5px;
+    }
+
+}
+
+@media  (min-width: 830px) and (max-width: 840px){
+
+    .navbar form input {
+        min-width: 85%;
+        margin: 0;
+        padding: 8px 10px 8px 32px;
+        font-size: 13px;
+        border:solid 1px #0000003e;
+        border-radius: 3px; 
+    }
+
+    .nav-bars{
+        display: none;
+    }
+   
+}
+
+@media screen and (min-width:841px){
+    .navbar form input {
+        min-width: 85%;
+        margin: 0;
+        padding: 8px 10px 8px 32px;
+        font-size: 13px;
+        border:solid 1px #0000003e;
+        border-radius: 3px; 
+    }
+
+    .nav-bars{
+        display: none;
+    }
+
+  
 }

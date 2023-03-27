@@ -91,4 +91,34 @@
 }
 
 
+@media screen and (max-width:460px){
+
+    .display-question-container{
+        flex-wrap:wrap;
+        justify-content:flex-start;
+    }
+
+    .display-question-details{
+        flex-grow: 0;
+        padding: 10px 20px;
+        width:100%;
+    }
+}
+
+@media screen and (max-width:1000px){
+
+    .main-bar{
+        width: calc(100%);
+        float:left;
+        margin: 0px 0px;
+        padding: 0;
+    }
+}
+
+
+
+
+
+
+
 

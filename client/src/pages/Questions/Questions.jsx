@@ -8,7 +8,7 @@ const Questions = () => {
   return (
     <div>
       <div className='home-container-1'>
-        <LeftSidebar/>
+      <span className='leftSideBarHide' ><LeftSidebar /></span>
         <div className='home-container-2'>
           <HomeMainbar/>
           <RightSidebar/>

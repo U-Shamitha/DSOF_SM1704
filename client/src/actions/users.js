@@ -23,3 +23,42 @@ export const updateProfile = (id, updateData) => async(dispatch) => {
         console.log(error)
     }
 }
+
+export const setNewSubscription = (userId, type) => async (dispatch) => {
+    try {
+        const { data } = await api.setSubscription(userId, type)
+        console.log(data);
+        // data && localStorage.setItem('Profile', JSON.stringify(data));
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const setQuestionsLeft = (userId, quesLeft) => async (dispatch) => {
+    try {
+        console.log("setQuestionsLeft: ");
+        console.log(quesLeft);
+        const { data } = await api.updateQuestionsLeft(userId, quesLeft);
+        console.log(data)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const setValidDay = (userId, validDay) => async (dispatch) => {
+    try {
+        const { data } = await api.updateValidDay(userId, validDay);
+        console.log(data)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const setMode = (userId, mode) => async (dispatch) => {
+    try {
+        const { data } = await api.updateMode(userId, mode);
+        console.log(data)
+    } catch (error) {
+        console.log(error);
+    }
+}

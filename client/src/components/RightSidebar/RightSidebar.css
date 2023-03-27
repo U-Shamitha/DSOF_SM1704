@@ -26,11 +26,11 @@
 .right-sidebar-div-1 .right-sidebar-div-2{
     display: flex;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content:flex-start;
 }
 
 .right-sidebar-div-1 .right-sidebar-div-2 p{
-    padding-left: 10px;
+    padding-left: 20px;
     margin-top: 0%;
     /* font-size: 13px; */
 }
@@ -66,5 +66,14 @@
     /* font-size: 13px; */
 }
 
+@media screen and (max-width:1000px){
 
+    .right-sidebar{
+        float: right;
+        width: 100%;
+        margin: 40px 0px 15px 24px;
+        font-size: 13px;
+    }
+
+}
 

@@ -7,13 +7,24 @@ import {createStore, applyMiddleware,  compose} from 'redux';
 import thunk from 'redux-thunk'
 import Reducers from './reducers' //no need to give "/index" bcoz entry point of every file is index
 
+// import CssBaseline from '@material-ui/core/CssBaseline';
+
+
 const store = createStore( Reducers, compose(applyMiddleware(thunk)))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
   <React.StrictMode>
+    {/* <CssBaseline /> */}
     <App />
   </React.StrictMode>
   </Provider>
 );
+
+
+
+
+
+
+// module.hot.accept();
