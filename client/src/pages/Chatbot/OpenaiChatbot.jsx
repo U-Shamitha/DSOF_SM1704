@@ -106,9 +106,9 @@ function OpenaiChatbot() {
               }
           
             console.log(res);
-            const msg = await res.json();
-            console.log(msg.message);
-            setAnswer(msg.message);
+            const {message} = await res.json();
+            console.log(message);
+            setAnswer(message);
 
           } catch (err) {
             console.error(err, "err");
