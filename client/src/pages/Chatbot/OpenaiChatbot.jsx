@@ -100,14 +100,15 @@ function OpenaiChatbot() {
               body: JSON.stringify({ prompt }),
             };
         
-            const res = await fetch("/create-chat-completion", requestOptions);
+            const res = await fetch("http://localhost:5000/create-chat-completion", requestOptions);
             if (!res.ok) {
                 throw new Error("Something went wrong");
               }
           
-              const msg = await res.json();
-              console.log(msg.message);
-              setAnswer(msg.message);
+            console.log(res);
+            const msg = await res.json();
+            console.log(msg.message);
+            setAnswer(msg.message);
 
           } catch (err) {
             console.error(err, "err");

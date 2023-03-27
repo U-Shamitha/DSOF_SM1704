@@ -209,7 +209,7 @@ app.post('/create-chat-completion', async (req, res) => {
     messages: [{role: "user", content: req.body.prompt }],
   });
   console.log(completion.data.choices[0].message);
-  const content = completion.data.choices[0].message.content
+  const content = completion.data.choices[0].message.content;
   res.status(200).json({message : content});
 }catch(err){
   console.log(err)
