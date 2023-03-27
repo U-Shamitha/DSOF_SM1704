@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import moment from 'moment'
 
 import { setNewSubscription } from '../../actions/users';
@@ -169,12 +170,12 @@ export default function ShowSubscription() {
       setSessionId(session_idq);
     }
 
-    if (canceledq) {
-      setSuccess(false);
-      setMessage(
-        "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
-      );
-    }
+    // if (canceledq) {
+    //   setSuccess(false);
+    //   setMessage(
+    //     "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
+    //   );
+    // }
 
     if (typeq) {
       setType(typeq)
