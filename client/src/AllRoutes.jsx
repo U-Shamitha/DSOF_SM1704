@@ -16,14 +16,16 @@ import OpenaiChatbot from './pages/Chatbot/OpenaiChatbot';
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route  path="/" element={<Home/>} />
-      <Route  path="/Auth" element={<Auth/>} />
-      <Route  path="/Questions" element={<Questions/>} />
+      <Route path="/" exact element={<Home/>} />
+      <Route path="/Auth" element={<Auth/>} />
+      <Route path="/Questions" element={<Questions/>} />
       <Route path="/AskQuestion" element={<AskQuestion />} />
       <Route path="/Questions/:id" element={<DisplayQuestion />} />
       <Route path="/Tags" element={<Tags/>} />
       <Route path="/Users" element={<Users/>} />
       <Route path="/Subscription" element={<Payment/>} />
+      <Route path="/Subscription/:success/:session_id/:type" element={<Payment/>} />
+      <Route path="/Subscription/:canceled" element={<Payment/>} />
       <Route path="/Chatbot" element={<OpenaiChatbot/>} />
       <Route path="/Users/:id" element={<UserProfile />} />
       <Route path="/LeftSideBarMenu" element={<LeftSideBarMenu/>}/>

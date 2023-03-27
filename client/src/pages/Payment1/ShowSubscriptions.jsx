@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import moment from 'moment'
 
@@ -130,6 +130,8 @@ const Message = ({ message }) => (
 
 export default function ShowSubscription() {
 
+  const { successq, canceledq, typeq } =useParams();
+
   const user = useSelector((state) => state.currentUserReducer);
   // console.log(user);
   // const type = useSelector((state) => state.typeReducer)
@@ -146,21 +148,37 @@ export default function ShowSubscription() {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
 
-    if (query.get('success')) {
+    // if (query.get('success')) {
+    //   setSuccess(true);
+    //   setSessionId(query.get('session_id'));
+    // }
+
+    // if (query.get('canceled')) {
+    //   setSuccess(false);
+    //   setMessage(
+    //     "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
+    //   );
+    // }
+
+    // if (query.get('type')) {
+    //   setType(query.get('type'))
+    // }
+    if (successq) {
       setSuccess(true);
       setSessionId(query.get('session_id'));
     }
 
-    if (query.get('canceled')) {
+    if (canceledq) {
       setSuccess(false);
       setMessage(
         "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
       );
     }
 
-    if (query.get('type')) {
-      setType(query.get('type'))
+    if (typeq) {
+      setType(typeq)
     }
+
   }, [sessionId]);
 
   if (!success && message === '') {
