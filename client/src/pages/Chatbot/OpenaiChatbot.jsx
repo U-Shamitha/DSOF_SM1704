@@ -9,6 +9,8 @@ import './OpenaiChatbot.css';
 import lens from '../../assets/search-solid.svg';
 import spinner from '../../assets/spinner.gif';
 
+const server = "https://stackoverflow-server-1ekf.onrender.com";
+
 function OpenaiChatbot() {
 
     const User = useSelector((state) => (state.currentUserReducer))
@@ -32,7 +34,7 @@ function OpenaiChatbot() {
       // }
       try{
         const res = await fetch(
-          "http://localhost:5000/otp/send-otp",
+          `${server}/otp/send-otp`,
           { 
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -61,7 +63,7 @@ function OpenaiChatbot() {
       // }
       try{
         const res = await fetch(
-          "http://localhost:5000/otp/verify-otp",
+          `${server}/otp/verify-otp`,
           { 
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -100,7 +102,7 @@ function OpenaiChatbot() {
               body: JSON.stringify({ prompt }),
             };
         
-            const res = await fetch("http://localhost:5000/create-chat-completion", requestOptions);
+            const res = await fetch(`${server}/create-chat-completion`, requestOptions);
             if (!res.ok) {
                 throw new Error("Something went wrong");
               }

@@ -144,7 +144,7 @@ export default function ShowSubscription() {
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
-    console.log(query);
+    console.log(query.get(success));
 
     if (query.get('success')) {
       setSuccess(true);

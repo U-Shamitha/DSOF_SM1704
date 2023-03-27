@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL: 'https://stackoverflow-server-ybuw.onrender.com'})
-const API2 = axios.create({baseURL: 'http://localhost:5000'})
+const API2 = axios.create({baseURL: 'https://stackoverflow-server-1ekf.onrender.com'})
+const API = axios.create({baseURL: 'http://localhost:5000'})
 
 // to provide security
 API2.interceptors.request.use((req) => {
