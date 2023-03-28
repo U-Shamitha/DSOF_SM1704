@@ -61,7 +61,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-const YOUR_DOMAIN = 'https://stackoverflow-client-kgjp.onrender.com/#/Subscription';
+const YOUR_DOMAIN = 'https://stackoverflow-client-kgjp.onrender.com/Subscription';
 // const YOUR_DOMAIN = 'http://localhost:3000/Subscription'
 
 app.post('/create-checkout-session', async (req, res) => {
@@ -184,7 +184,7 @@ app.post(
 
 
 app.get('/*', function(req, res) { 
-  res.sendFile(path.join(__dirname, '../public/index.html'), 
+  res.sendFile(path.join(__dirname, '/index.html'), 
   function(err) { 
     if (err) { 
       res.status(500).send(err) 
