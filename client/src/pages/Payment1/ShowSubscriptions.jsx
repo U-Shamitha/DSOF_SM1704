@@ -35,7 +35,7 @@ const ProductDisplay = () => {
   //   console.log("type: "+type)
   //   dispatch({type: 'SET_TYPE', payload: type })
   // }
-  
+
  return(
     <div style={{display:'flex', justifyContent:'space-around'}}>
         <section>
@@ -150,21 +150,22 @@ export default function ShowSubscription() {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
 
-    // if (query.get('success')) {
-    //   setSuccess(true);
-    //   setSessionId(query.get('session_id'));
-    // }
+    if (query.get('success')) {
+      setSuccess(true);
+      setSessionId(query.get('session_id'));
+    }
 
-    // if (query.get('canceled')) {
-    //   setSuccess(false);
-    //   setMessage(
-    //     "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
-    //   );
-    // }
+    if (query.get('canceled')) {
+      setSuccess(false);
+      setMessage(
+        "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
+      );
+    }
 
-    // if (query.get('type')) {
-    //   setType(query.get('type'))
-    // }
+    if (query.get('type')) {
+      setType(query.get('type'))
+    }
+    
     if (successq) {
       setSuccess(true);
       setSessionId(query.get('session_id'));
