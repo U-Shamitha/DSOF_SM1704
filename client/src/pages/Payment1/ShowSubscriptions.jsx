@@ -131,6 +131,7 @@ const Message = ({ message }) => (
 export default function ShowSubscription() {
 
   const { successq, canceledq, typeq } =useParams();
+  console.log( successq, canceledq, typeq );
 
   const user = useSelector((state) => state.currentUserReducer);
   // console.log(user);
