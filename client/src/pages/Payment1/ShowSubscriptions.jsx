@@ -131,8 +131,8 @@ const Message = ({ message }) => (
 
 export default function ShowSubscription() {
 
-  const { successq, canceledq, typeq } =useParams();
-  console.log( successq, canceledq, typeq );
+  // const { successq, canceledq, typeq } =useParams();
+  // console.log( successq, canceledq, typeq );
 
   const user = useSelector((state) => state.currentUserReducer);
   // console.log(user);
@@ -165,22 +165,22 @@ export default function ShowSubscription() {
     if (query.get('type')) {
       setType(query.get('type'))
     }
-    
-    if (successq) {
-      setSuccess(true);
-      setSessionId(query.get('session_id'));
-    }
 
-    if (canceledq) {
-      setSuccess(false);
-      setMessage(
-        "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
-      );
-    }
+    // if (successq) {
+    //   setSuccess(true);
+    //   setSessionId(query.get('session_id'));
+    // }
 
-    if (typeq) {
-      setType(typeq)
-    }
+    // if (canceledq) {
+    //   setSuccess(false);
+    //   setMessage(
+    //     "Subscription canceled -- continue trying to subscribe and checkout when you're ready."
+    //   );
+    // }
+
+    // if (typeq) {
+    //   setType(typeq)
+    // }
 
   }, [sessionId]);
 
