@@ -61,7 +61,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-const YOUR_DOMAIN = 'https://stackoverflow-client-kgjp.onrender.com/Subscription';
+const YOUR_DOMAIN = 'https://stackoverflow-client-kgjp.onrender.com/#/Subscription';
 // const YOUR_DOMAIN = 'http://localhost:3000/Subscription'
 
 app.post('/create-checkout-session', async (req, res) => {
@@ -90,8 +90,8 @@ console.log(prices);
       },
     ],
     mode: 'subscription',
-    success_url: `${YOUR_DOMAIN}/#/true/{CHECKOUT_SESSION_ID}/${req.body.type}`,
-    cancel_url: `${YOUR_DOMAIN}/#/true`,
+    success_url: `${YOUR_DOMAIN}/true/{CHECKOUT_SESSION_ID}/${req.body.type}`,
+    cancel_url: `${YOUR_DOMAIN}/true`,
   });
 
   res.redirect(303, session.url);
