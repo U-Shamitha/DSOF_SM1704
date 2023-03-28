@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import Stripe from 'stripe'
+import path from 'path';
+import Stripe from 'stripe';
 const stripe = new Stripe('sk_test_51MiCr7SIXsHnK2VWtTFt5LqZTWuiVsn4JNnAarH1noQ1JMuvfbmgjEYYZFWdSZZENjiAn6Emd8Hky661Y2Gkb4yi00w99HD2dk')
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
@@ -180,6 +181,16 @@ app.post(
     response.send();
   }
 );
+
+
+app.get('/*', function(req, res) { 
+  res.sendFile(path.join(__dirname, 'index.html'), 
+  function(err) { 
+    if (err) { 
+      res.status(500).send(err) 
+    } 
+  }) 
+})
 
 // app.listen(4242, () => console.log('Running on port 4242'));
 
