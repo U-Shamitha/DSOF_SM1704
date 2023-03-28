@@ -31,7 +31,6 @@ const AllRoutes = () => {
       <Route path="/LeftSideBarMenu" element={<LeftSideBarMenu/>}/>
 
 
-      //social media
       
 
     </Routes>

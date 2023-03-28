@@ -61,6 +61,7 @@ app.use(express.json());
 
 
 const YOUR_DOMAIN = 'https://stackoverflow-client-kgjp.onrender.com/Subscription';
+// const YOUR_DOMAIN = 'http://localhost:3000/Subscription'
 
 app.post('/create-checkout-session', async (req, res) => {
   console.log(req.body.lookup_key)
