@@ -229,9 +229,9 @@ app.use('/otp', otpRoutes);
 
 // app.use('/public', express.static(__dirname + '/static-files-dir'));
 
-app.get('/*', function(req, res) { 
-  console.log(path.join(__dirname, 'public/index.html'))
-  res.sendFile(path.join(__dirname, 'public/index.html'), 
+app.get('*', function(req, res) { 
+  console.log(path.join(__dirname, '../client/build/index.html'))
+  res.sendFile(path.join(__dirname, '../client/build/index.html'), 
   function(err) { 
     if (err) { 
       res.status(500).send(err) 

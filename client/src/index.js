@@ -18,9 +18,7 @@ root.render(
   <Provider store={store}>
   <React.StrictMode>
     {/* <CssBaseline /> */}
-    <HashRouter>
       <App />
-    </HashRouter>
   </React.StrictMode>
   </Provider>
 );
