@@ -183,17 +183,7 @@ app.post(
 );
 
 
-// app.use('/public', express.static(__dirname + '/static-files-dir'));
 
-app.get('/*', function(req, res) { 
-  console.log(path.join(__dirname, 'public/index.html'))
-  res.sendFile(path.join(__dirname, 'public/index.html'), 
-  function(err) { 
-    if (err) { 
-      res.status(500).send(err) 
-    } 
-  }) 
-})
 
 // app.listen(4242, () => console.log('Running on port 4242'));
 
@@ -234,3 +224,17 @@ app.post('/create-chat-completion', async (req, res) => {
 
 //************************************************ otp **************************************************/
 app.use('/otp', otpRoutes);
+
+
+
+// app.use('/public', express.static(__dirname + '/static-files-dir'));
+
+app.get('/*', function(req, res) { 
+  console.log(path.join(__dirname, 'public/index.html'))
+  res.sendFile(path.join(__dirname, 'public/index.html'), 
+  function(err) { 
+    if (err) { 
+      res.status(500).send(err) 
+    } 
+  }) 
+})

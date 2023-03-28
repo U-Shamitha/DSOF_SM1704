@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import {createStore, applyMiddleware,  compose} from 'redux';
 import thunk from 'redux-thunk'
 import Reducers from './reducers' //no need to give "/index" bcoz entry point of every file is index
+import { HashRouter } from 'react-router-dom';
 
 // import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -17,7 +18,9 @@ root.render(
   <Provider store={store}>
   <React.StrictMode>
     {/* <CssBaseline /> */}
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </React.StrictMode>
   </Provider>
 );

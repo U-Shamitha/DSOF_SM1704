@@ -35,6 +35,7 @@ const ProductDisplay = () => {
   //   console.log("type: "+type)
   //   dispatch({type: 'SET_TYPE', payload: type })
   // }
+  
  return(
     <div style={{display:'flex', justifyContent:'space-around'}}>
         <section>
