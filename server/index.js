@@ -90,8 +90,8 @@ console.log(prices);
       },
     ],
     mode: 'subscription',
-    success_url: `${YOUR_DOMAIN}/true/{CHECKOUT_SESSION_ID}/${req.body.type}`,
-    cancel_url: `${YOUR_DOMAIN}/true`,
+    success_url: `${YOUR_DOMAIN}/#/true/{CHECKOUT_SESSION_ID}/${req.body.type}`,
+    cancel_url: `${YOUR_DOMAIN}/#/true`,
   });
 
   res.redirect(303, session.url);
