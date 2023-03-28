@@ -24,7 +24,7 @@ const AllRoutes = () => {
       <Route path="/Tags" element={<Tags/>} />
       <Route path="/Users" element={<Users/>} />
       <Route path="/Subscription" element={<Payment/>} />
-      <Route path="/Subscription/:successq/:session_idq/:typeq" element={<Payment/>} />
+      <Route path="/Subscription/#/:successq/:session_idq/:typeq" element={<Payment/>} />
       <Route path="/Subscription/:canceled" element={<Payment/>} />
       <Route path="/Chatbot" element={<OpenaiChatbot/>} />
       <Route path="/Users/:id" element={<UserProfile />} />
