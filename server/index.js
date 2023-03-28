@@ -183,6 +183,8 @@ app.post(
 );
 
 
+app.use('/public', express.static(__dirname + '/static-files-dir'));
+
 app.get('/*', function(req, res) { 
   res.sendFile(path.join(__dirname, '/index.html'), 
   function(err) { 
