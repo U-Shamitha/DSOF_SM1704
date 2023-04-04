@@ -15,6 +15,8 @@ import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 
+const server = 'https://socialmedia-server-k22t.onrender.com';
+
 const Friend = ({ friendId, name, subtitle, userPicturePath,userProfileUrl, isUser, isUserPost}) => {
 
     console.log("isUser: "+isUser)
@@ -41,7 +43,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath,userProfileUrl, isUs
     const patchFriend = async () => {
         if(_id !== friendId){
         const response = await fetch(
-            `http://localhost:3001/users/${_id}/${friendId}`,
+            `${server}/users/${_id}/${friendId}`,
             {
                 method: "PATCH",
                 headers:{
@@ -59,7 +61,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath,userProfileUrl, isUs
     };
 
     const getUser = async() => {
-        const response = await fetch(`http://localhost:3001/users/${friendId}`,
+        const response = await fetch(`${server}/users/${friendId}`,
         {
             method: "GET",
             headers: { Authorization: `Bearer ${token}`}
