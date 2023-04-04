@@ -4,6 +4,8 @@ import {Link, NavLink} from 'react-router-dom';
 import Globe from '../../assets/Globe.svg'
 import Navbar from '../Navbar/Navbar';
 
+socialMediaClient = 'https://socialmedia-client-snyv.onrender.com';
+
 const LeftSidebar = () => {
   return (
     <div>
@@ -25,7 +27,7 @@ const LeftSidebar = () => {
                 <NavLink to="/Users" className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
                     <p>Users</p>
                 </NavLink>
-                <a href="http://localhost:3000/" className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
+                <a href={socialMediaClient} className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
                     <p>Community</p>
                 </a>
                 <NavLink to="/Subscription" className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>

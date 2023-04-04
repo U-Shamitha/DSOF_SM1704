@@ -3,6 +3,8 @@ import './LeftSideBarMenu.css';
 import {NavLink} from 'react-router-dom';
 import Globe from '../../assets/Globe.svg'
 
+socialMediaClient = 'https://socialmedia-client-snyv.onrender.com';
+
 const LeftSideBarMenu = () => {
   return (
     <div className='left-sidebarm'>
@@ -24,7 +26,7 @@ const LeftSideBarMenu = () => {
                 <NavLink to="/Users" className='side-nav-linksm' activeclassname='active' style={{paddingLeft:"40px"}}>
                     <p>Users</p>
                 </NavLink>
-                <a href="http://localhost:3000/" className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
+                <a href={socialMediaClient} className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
                     <p>Community</p>
                 </a>
                 <NavLink to="/Subscription" className='side-nav-links' activeclassname='active' style={{paddingLeft:"40px"}}>
