@@ -65,6 +65,10 @@ const initialValuesLogin = {
     password: ""
 }
 
+
+const server = 'https://socialmedia-server-k22t.onrender.com';
+
+
 const Form = () => {
     const [ pageType, setPageType ] = useState("login");
     const [ image, setImage ] = useState(null);
@@ -126,13 +130,22 @@ const Form = () => {
         formData.append('picturePath', values.picture.name);
         formData.append('profileUrl', profileUrl);
 
+        // const savedUserResponse = await fetch(
+        //     "http://localhost:3001/auth/register",
+        //     {
+        //         method: "POST",
+        //         body: formData,
+        //     }
+        // );
+
         const savedUserResponse = await fetch(
-            "http://localhost:3001/auth/register",
+            `${server}/auth/register`,
             {
                 method: "POST",
                 body: formData,
             }
         );
+        
         const savedUser = await savedUserResponse.json();
         onSubmitProps.resetForm();
 
@@ -143,7 +156,7 @@ const Form = () => {
 
     const login = async ( values, onSubmitProps) => {
         const loggedInResponse = await fetch(
-            "http://localhost:3001/auth/login",
+            `${server}/auth/login`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json"},

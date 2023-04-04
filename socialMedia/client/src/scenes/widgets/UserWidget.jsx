@@ -13,6 +13,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { setPostedUser } from 'state';
 
+const server = 'https://socialmedia-server-k22t.onrender.com';
+
 const UserWidget = ({ userId, picturePath }) => {
     const [ user, setUser ] = useState(null);
     const { palette } = useTheme();
@@ -23,7 +25,7 @@ const UserWidget = ({ userId, picturePath }) => {
     const main = palette.neutral.main;
 
     const getUser = async() => {
-        const response = await fetch(`http://localhost:3001/users/${userId}`,
+        const response = await fetch(`${server}/users/${userId}`,
         {
             method: "GET",
             headers: { Authorization: `Bearer ${token}`}

@@ -43,9 +43,12 @@ const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 //   // setUser(data);
 // }
 
+const server = 'https://socialmedia-server-k22t.onrender.com';
+
+
 const getUserPost = async () => {
   const response = await fetch(
-    `http://localhost:3001/userPost/${postId}`,{
+    `${server}/userPost/${postId}`,{
     method: "GET",
     headers: { Authorization: `Bearer ${token}`}
   });

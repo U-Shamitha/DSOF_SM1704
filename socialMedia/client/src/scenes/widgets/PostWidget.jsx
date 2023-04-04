@@ -54,7 +54,8 @@ const PostWidget =({
 
     const navigate = useNavigate();
 
-    const deployingClientUrl = `http://localhost:3000`
+    // const deployingClientUrl = `http://localhost:3000`
+    const deployingClientUrl = `https://socialmedia-client-snyv.onrender.com`
  
     const handleShare = () => {
         copy(deployingClientUrl+"/userPost/"+ postId);
@@ -62,7 +63,7 @@ const PostWidget =({
     }
 
     const patchLike = async () => {
-        const response = await fetch(`http://localhost:3001/posts/${postId}/like`,{
+        const response = await fetch(`${server}/posts/${postId}/like`,{
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${token}`,

@@ -28,6 +28,8 @@ import { setPosts } from 'state';
 import VideoUpload from './VideoUpload';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
+const server = 'https://socialmedia-server-k22t.onrender.com';
+
 const MyPostWidget = ({picturePath}) => {
     const dispatch = useDispatch();
     const [isImage, setIsImage] = useState(false);
@@ -106,7 +108,7 @@ const MyPostWidget = ({picturePath}) => {
             formData.append("videoUrl",videoUrl);
         }
 
-        const response = await fetch(`http://localhost:3001/posts`, {
+        const response = await fetch(`${server}/posts`, {
             method: "POST",
             headers: { Authorization: `Bearer ${token}`},
             body: formData
