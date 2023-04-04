@@ -4,7 +4,7 @@ import {Link, NavLink} from 'react-router-dom';
 import Globe from '../../assets/Globe.svg'
 import Navbar from '../Navbar/Navbar';
 
-socialMediaClient = 'https://socialmedia-client-snyv.onrender.com';
+const socialMediaClient = 'https://socialmedia-client-snyv.onrender.com';
 
 const LeftSidebar = () => {
   return (

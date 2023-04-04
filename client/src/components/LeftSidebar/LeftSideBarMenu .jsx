@@ -3,7 +3,7 @@ import './LeftSideBarMenu.css';
 import {NavLink} from 'react-router-dom';
 import Globe from '../../assets/Globe.svg'
 
-socialMediaClient = 'https://socialmedia-client-snyv.onrender.com';
+const socialMediaClient = 'https://socialmedia-client-snyv.onrender.com';
 
 const LeftSideBarMenu = () => {
   return (
