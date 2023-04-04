@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFriends } from 'state';
 
+const server = 'https://socialmedia-server-k22t.onrender.com';
+
+
 const FriendListWidget = ({ userId, isUser }) => {
     const dispatch = useDispatch();
     const { palette } = useTheme();
