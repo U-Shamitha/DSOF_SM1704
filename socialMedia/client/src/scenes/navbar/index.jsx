@@ -45,6 +45,21 @@ const Navbar = () => {
 
   const [searchUSer, setSearchUser] = useState(undefined);
 
+  const handleSearch = async(e) => {
+    if (e.key !== "Enter") {
+      return;
+    }
+
+    const response = await fetch(
+      `${server}/user/name/${searchUSer}`,{
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`}
+    });
+    const user = await response.json();
+    console.log(user);
+    const userId = user._id;
+    navigate(`/profile/${userId}`)  
+  }
 
   return <FlexBetween padding='1rem 6%' backgroundColor={alt}>
     <FlexBetween gap='1.75rem'>
@@ -66,7 +81,7 @@ const Navbar = () => {
 
       {isNonMoblieScreens && (
         <FlexBetween backgroundColor={neutralLight} borderRadius='9px' gap='3rem' padding='0.1rem 1.5rem'>
-          <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}}>
+          <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
             <IconButton>
               <Search />
             </IconButton>
