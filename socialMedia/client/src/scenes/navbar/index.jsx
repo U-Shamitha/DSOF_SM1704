@@ -50,7 +50,7 @@ const Navbar = () => {
   // const fullName =  "SHAMITHA";
 
   const [searchUSer, setSearchUser] = useState(undefined);
-  const [userSearchList, setUserSearchList] = useState([]);
+  const [userSearchList, setUserSearchList] = useState([{user}]);
 
   const handleSearch = async(e) => {
     if (e.key !== "Enter") {
