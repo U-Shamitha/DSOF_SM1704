@@ -46,6 +46,7 @@ const Navbar = () => {
   // const fullName =  "SHAMITHA";
 
   const [searchUSer, setSearchUser] = useState(undefined);
+  const [userSearchList, setUserSearchList] = useState([]);
 
   const handleSearch = async(e) => {
     if (e.key !== "Enter") {
@@ -57,9 +58,10 @@ const Navbar = () => {
       method: "GET",
       headers: { Authorization: `Bearer ${token}`}
     });
-    const user = await response.json();
-    console.log(user);
-    const userId = user[0]._id;
+    const users = await response.json();
+    console.log(users);
+    setUserSearchList(users);
+    const userId = users[0]._id;
     console.log(userId);
     navigate(`/profile/${userId}`)  
   }
@@ -84,11 +86,21 @@ const Navbar = () => {
 
       {isNonMoblieScreens && (
         <FlexBetween backgroundColor={neutralLight} borderRadius='9px' gap='3rem' padding='0.1rem 1.5rem'>
-          <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
+          {/* <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
             <IconButton>
               <Search />
             </IconButton>
-          </InputBase>
+          </InputBase> */}
+          <Select placeholder='Search...' onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
+            <IconButton>
+              <Search />
+            </IconButton>
+            {
+              userSearchList.map((user,ind) =>
+                <option key={ind} value={user._id}>{user.fullName+" "+user.lastName}</option>
+              )
+            }
+          </Select>
         </FlexBetween>
       )}
     </FlexBetween> 
