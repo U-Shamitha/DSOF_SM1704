@@ -90,6 +90,12 @@ const Navbar = () => {
 
       {isNonMoblieScreens && (
         <FlexBetween backgroundColor={neutralLight} borderRadius='9px' gap='3rem' padding='0.1rem 1.5rem'>
+          {/* <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
+            <IconButton>
+              <Search />
+            </IconButton>
+          </InputBase> */}
+
           <Select placeholder='Search...' options={userSearchList} onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
             <IconButton>
               <Search />
@@ -99,8 +105,8 @@ const Navbar = () => {
 
           {/* <IconButton>
             <Search />
-          </IconButton> */}
-          {/* <EditableSelect placeholder='Search...'  
+          </IconButton>
+          <EditableSelect placeholder='Search...'  
             // onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  
             onChange={(e, option)=>{navigate(`/profile/${option._id}`)}} 
             onKeyDown={(e)=>handleSearch(e)}
