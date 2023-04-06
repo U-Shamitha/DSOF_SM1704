@@ -36,7 +36,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath,userProfileUrl, isUs
     const main = palette.neutral.main;
     const medium = palette.neutral.medium;
 
-    const isFriend =friends.find((friend) => friend._id === friendId); //data from redux, friends contain all details of each friend
+    const isFriend =friends?.find((friend) => friend._id === friendId); //data from redux, friends contain all details of each friend
     console.log(isFriend)
     // const isFriend = false;
 
