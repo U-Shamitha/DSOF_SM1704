@@ -49,6 +49,7 @@ const FriendListWidget = ({ userId, isUser }) => {
                         name={`${friend.firstName} ${friend.lastName}`}
                         subtitle={friend.occupation}
                         userPicturePath={friend.picturePath}
+                        userProfileUrl={friend.profileUrl}
                         isUser={isUser}
                     />
                 ))

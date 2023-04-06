@@ -15,8 +15,8 @@ export const getUser = async (req, res) => {
 export const getUserWithName = async (req, res) => {
     try{
         const { name } = req.params;
-        const users = await User.find();
-        const user = users.filter((user) => user.firstName.includes(name) || user.lastName.includes(name))
+        const users = await User.find()
+        const user = users.filter((user) => user.firstName.includes(name) || user.lastName.includes(name) ||  name.includes(user.firstName) || name.includes(user.lastName) )
         console.log(user);
         res.status(200).json(user);
     }catch(err){
@@ -33,8 +33,8 @@ export const getUserFriends = async(req, res) => {
             user.friends.map((id) => User.findById(id))
         );
         const formattedFriends = friends.map(
-            ({_id, firstName, lastName, occupation, location, picturePath}) => {
-                return {_id, firstName, lastName, occupation, location, picturePath};
+            ({_id, firstName, lastName, occupation, location, picturePath, profileUrl}) => {
+                return {_id, firstName, lastName, occupation, location, picturePath, profileUrl};
             }
         )
         res.status(200).json(formattedFriends);
@@ -69,8 +69,8 @@ export const addRemoveFriend = async(req, res) => {
             user.friends.map((id) => User.findById(id))
         );
         const formattedFriends = friends.map(
-            ({_id, firstName, lastName, occupation, location, picturePath}) => {
-                return {_id, firstName, lastName, occupation, location, picturePath};
+            ({_id, firstName, lastName, occupation, location, picturePath, profileUrl}) => {
+                return {_id, firstName, lastName, occupation, location, picturePath, profileUrl};
             }
         )
 

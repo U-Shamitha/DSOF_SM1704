@@ -15,7 +15,7 @@ import { setPostedUser } from 'state';
 
 const server = 'https://socialmedia-server-k22t.onrender.com';
 
-const UserWidget = ({ userId, picturePath }) => {
+const UserWidget = ({ userId, picturePath, profileUrl }) => {
     const [ user, setUser ] = useState(null);
     const { palette } = useTheme();
     const navigate = useNavigate();
@@ -64,7 +64,7 @@ const UserWidget = ({ userId, picturePath }) => {
                 onClick={() => navigate(`/profile/${userId}`)}
             >
                 <FlexBetween gap="1rem">
-                    <UserImage image={picturePath} />
+                    <UserImage image={profileUrl} />
                     <Box>
                         <Typography
                             variant='h4'

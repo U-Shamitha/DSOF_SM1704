@@ -45,7 +45,7 @@ if(!user) return null;
         justifyContent="center"
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined }>
-          <UserWidget userId={userId} picturePath={user.picturePath} />
+          <UserWidget userId={userId} profileUrl={user.profileUrl} />
           <Box m='2rem 0' />
           <FriendListWidget userId={userId} isUser={false}/>
         </Box>

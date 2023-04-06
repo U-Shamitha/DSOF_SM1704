@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   IconButton,
@@ -20,7 +20,7 @@ import {
   Menu,
   Close
 } from '@mui/icons-material';
-import { EditableSelect } from 'react-editable-select';
+import  SelectSearch  from 'react-select-search';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMode, setLogout } from '../../state';
 import { useNavigate } from 'react-router-dom';
@@ -51,6 +51,8 @@ const Navbar = () => {
 
   const [searchUSer, setSearchUser] = useState(undefined);
   const [userSearchList, setUserSearchList] = useState([user]);
+  const [showMatchedUsers, setShowMatchedUsers] =useState(false);
+
 
   const handleSearch = async(e) => {
     if (e.key !== "Enter") {
@@ -65,10 +67,12 @@ const Navbar = () => {
     const users = await response.json();
     console.log(users);
     setUserSearchList(users);
+    if(users) {setShowMatchedUsers(true)};
     // const userId = users[0]._id;
     // console.log(userId);
     // navigate(`/profile/${userId}`)  
   }
+
 
   return <FlexBetween padding='1rem 6%' backgroundColor={alt}>
     <FlexBetween gap='1.75rem'>
@@ -90,18 +94,31 @@ const Navbar = () => {
 
       {isNonMoblieScreens && (
         <FlexBetween backgroundColor={neutralLight} borderRadius='9px' gap='3rem' padding='0.1rem 1.5rem'>
-          {/* <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
-            <IconButton>
-              <Search />
-            </IconButton>
-          </InputBase> */}
-          
-          <IconButton>
-            <Search />
-          </IconButton>
-          <Select placeholder='Search...' options={userSearchList} onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
-            
-          </Select>
+        <IconButton>
+          <Search onClick={(e)=>setShowMatchedUsers(false)}/>
+        </IconButton>
+      {  !showMatchedUsers && <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}></InputBase> } 
+      { showMatchedUsers && 
+        <Select onSelect={(e)=>{navigate(`/profile/${e.target.value}`)}}>
+          {userSearchList.map((userp)=> (
+            <option key={userp._id} value={userp._id} onClick={(e) => navigate(`/profile/${userp._id}`)}>
+              <Typography>{userp.firstName+" "+userp.lastName }</Typography>
+            </option>
+          ))}
+        </Select>
+      }
+    
+        
+
+
+
+
+
+          {/* <SelectSearch  placeholder='Search...' search={true} autoComplete='on'>
+              {userSearchList.map((user) => (
+                <option key={user._id} value={user._id}>{user.firstName+" "+user.lastName}</option>
+              ))}
+          </SelectSearch> */}
 
 
           {/* <IconButton>
