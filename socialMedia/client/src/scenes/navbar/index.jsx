@@ -20,10 +20,14 @@ import {
   Menu,
   Close
 } from '@mui/icons-material';
+import { EditableSelect } from 'react-editable-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMode, setLogout } from '../../state';
 import { useNavigate } from 'react-router-dom';
+
+
 import FlexBetween from 'components/FlexBetween';
+
 
 const server = 'https://socialmedia-server-k22t.onrender.com';
 
@@ -91,16 +95,17 @@ const Navbar = () => {
               <Search />
             </IconButton>
           </InputBase> */}
-          <Select placeholder='Search...' onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
-            <IconButton>
-              <Search />
-            </IconButton>
+          <IconButton>
+            <Search />
+          </IconButton>
+          <EditableSelect placeholder='Search...'  onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
+            
             {
               userSearchList.map((user,ind) =>
                 <option key={ind} value={user._id}>{user.fullName+" "+user.lastName}</option>
               )
             }
-          </Select>
+          </EditableSelect>
         </FlexBetween>
       )}
     </FlexBetween> 
