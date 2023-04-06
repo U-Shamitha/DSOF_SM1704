@@ -95,11 +95,12 @@ const Navbar = () => {
               <Search />
             </IconButton>
           </InputBase> */}
-
+          
+          <IconButton>
+            <Search />
+          </IconButton>
           <Select placeholder='Search...' options={userSearchList} onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
-            <IconButton>
-              <Search />
-            </IconButton>
+            
           </Select>
 
 
