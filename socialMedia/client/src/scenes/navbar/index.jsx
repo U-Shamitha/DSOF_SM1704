@@ -59,7 +59,8 @@ const Navbar = () => {
     });
     const user = await response.json();
     console.log(user);
-    const userId = user._id;
+    const userId = user[0]._id;
+    console.log(userId);
     navigate(`/profile/${userId}`)  
   }
 
