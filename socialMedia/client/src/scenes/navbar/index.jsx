@@ -105,7 +105,7 @@ const Navbar = () => {
             options={userSearchList}
             getOptionValue = {(option) => option._id}
             getOptionLabel = {(option) => option.firstName+" "+option.lastName}
-            value = {selectedOption}
+            // value = {selectedOption}
           >
           </EditableSelect>
         </FlexBetween>
