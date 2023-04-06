@@ -25,12 +25,14 @@ import { setMode, setLogout } from '../../state';
 import { useNavigate } from 'react-router-dom';
 import FlexBetween from 'components/FlexBetween';
 
+const server = 'https://socialmedia-server-k22t.onrender.com';
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
   const isNonMoblieScreens = useMediaQuery("(min-width: 1000px)");
 
   const theme = useTheme();
