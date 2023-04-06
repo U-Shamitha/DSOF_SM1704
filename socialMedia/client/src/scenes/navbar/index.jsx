@@ -65,9 +65,9 @@ const Navbar = () => {
     const users = await response.json();
     console.log(users);
     setUserSearchList(users);
-    const userId = users[0]._id;
-    console.log(userId);
-    navigate(`/profile/${userId}`)  
+    // const userId = users[0]._id;
+    // console.log(userId);
+    // navigate(`/profile/${userId}`)  
   }
 
   return <FlexBetween padding='1rem 6%' backgroundColor={alt}>
@@ -98,13 +98,15 @@ const Navbar = () => {
           <IconButton>
             <Search />
           </IconButton>
-          <EditableSelect placeholder='Search...'  onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
-            
-            {
-              userSearchList.map((user,ind) =>
-                <option key={ind} value={user._id}>{user.fullName+" "+user.lastName}</option>
-              )
-            }
+          <EditableSelect placeholder='Search...'  
+            // onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  
+            onChange={(e, option)=>{navigate(`/profile/${option._id}`)}} 
+            onKeyDown={(e)=>handleSearch(e)}
+            options={userSearchList}
+            getOptionValue = {(option) => option._id}
+            getOptionLabel = {(option) => option.firstName+" "+option.lastName}
+            value = {selectedOption}
+          >
           </EditableSelect>
         </FlexBetween>
       )}
