@@ -53,7 +53,7 @@ const Navbar = () => {
     }
 
     const response = await fetch(
-      `${server}/user/name/${searchUSer}`,{
+      `${server}/users/name/${searchUSer}`,{
       method: "GET",
       headers: { Authorization: `Bearer ${token}`}
     });
