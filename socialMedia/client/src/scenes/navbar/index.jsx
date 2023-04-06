@@ -50,7 +50,7 @@ const Navbar = () => {
   // const fullName =  "SHAMITHA";
 
   const [searchUSer, setSearchUser] = useState(undefined);
-  const [userSearchList, setUserSearchList] = useState([{user}]);
+  const [userSearchList, setUserSearchList] = useState([user]);
 
   const handleSearch = async(e) => {
     if (e.key !== "Enter") {
@@ -90,15 +90,17 @@ const Navbar = () => {
 
       {isNonMoblieScreens && (
         <FlexBetween backgroundColor={neutralLight} borderRadius='9px' gap='3rem' padding='0.1rem 1.5rem'>
-          {/* <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
+          <Select placeholder='Search...' options={userSearchList} onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}>
             <IconButton>
               <Search />
             </IconButton>
-          </InputBase> */}
-          <IconButton>
+          </Select>
+
+
+          {/* <IconButton>
             <Search />
-          </IconButton>
-          <EditableSelect placeholder='Search...'  
+          </IconButton> */}
+          {/* <EditableSelect placeholder='Search...'  
             // onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  
             onChange={(e, option)=>{navigate(`/profile/${option._id}`)}} 
             onKeyDown={(e)=>handleSearch(e)}
@@ -107,7 +109,7 @@ const Navbar = () => {
             getOptionLabel = {(option) => option.firstName+" "+option.lastName}
             // value = {selectedOption}
           >
-          </EditableSelect>
+          </EditableSelect> */}
         </FlexBetween>
       )}
     </FlexBetween> 
