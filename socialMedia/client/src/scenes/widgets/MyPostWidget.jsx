@@ -293,7 +293,7 @@ const MyPostWidget = ({picturePath}) => {
                  )}
 
                  <Button
-                    disabled = {!post || uploadingImg<100 || uploadingVideo<100}
+                    disabled = {!post ||( image && uploadingImg<100) || (video && uploadingVideo<100)}
                     onClick = {handlePost}
                     sx={{
                         color: palette.background.alt,
