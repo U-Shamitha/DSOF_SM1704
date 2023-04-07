@@ -99,41 +99,17 @@ const Navbar = () => {
         </IconButton>
       {  !showMatchedUsers && <InputBase placeholder='Search...' onChange={(e)=>{setSearchUser(e.target.value);console.log(searchUSer)}} onKeyDown={(e)=>handleSearch(e)}></InputBase> } 
       { showMatchedUsers && 
-        <Select onSelect={(e)=>{navigate(`/profile/${e.target.value}`)}}>
+        <FormControl variant="standard" value={fullName} sx={{width:'80%'}}>
+        <Select value={user.firstName} >
           {userSearchList.map((userp)=> (
-            <option key={userp._id} value={userp._id} onClick={(e) => navigate(`/profile/${userp._id}`)}>
+            <MenuItem key={userp._id} value={userp._id} onClick={(e) => {navigate(`/profile/${userp._id}`);navigate(0)}} >
               <Typography>{userp.firstName+" "+userp.lastName }</Typography>
-            </option>
+            </MenuItem>
           ))}
         </Select>
+        </FormControl>
       }
-    
-        
 
-
-
-
-
-          {/* <SelectSearch  placeholder='Search...' search={true} autoComplete='on'>
-              {userSearchList.map((user) => (
-                <option key={user._id} value={user._id}>{user.firstName+" "+user.lastName}</option>
-              ))}
-          </SelectSearch> */}
-
-
-          {/* <IconButton>
-            <Search />
-          </IconButton>
-          <EditableSelect placeholder='Search...'  
-            // onSelect={(e)=> {navigate(`/profile/${e.target.options[e.target.selectedIndex].value}`)}}  
-            onChange={(e, option)=>{navigate(`/profile/${option._id}`)}} 
-            onKeyDown={(e)=>handleSearch(e)}
-            options={userSearchList}
-            getOptionValue = {(option) => option._id}
-            getOptionLabel = {(option) => option.firstName+" "+option.lastName}
-            // value = {selectedOption}
-          >
-          </EditableSelect> */}
         </FlexBetween>
       )}
     </FlexBetween> 

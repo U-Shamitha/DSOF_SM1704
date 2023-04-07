@@ -48,16 +48,18 @@ const MyPostWidget = ({picturePath}) => {
     const [imageUrl,setImageUrl] = useState("");
     const [title,setTitle] = useState(0);
     const [desc,setDesc] = useState("");
+    const [uploadingImg, setUploadingImg] = useState(0);
+    const [uploadingVideo, setUploadingVideo] = useState(0);
 
     useEffect(() => {
-        video && uploadFile(video);
+        video && uploadFile(video,'video');
       }, [video]);
 
       useEffect(() => {
-        image && uploadFile(image);
+        image && uploadFile(image, 'image');
       }, [image]);
   
-      const uploadFile = (file) => {
+      const uploadFile = (file,content) => {
           const storage = getStorage();
           const fileName = new Date().getTime() + file.name
           const storageRef = ref(storage, fileName);
@@ -77,6 +79,8 @@ const MyPostWidget = ({picturePath}) => {
                       break;
                   case 'running':
                       console.log('Upload is running');
+                      if(content==='image'){setUploadingImg(progress)};
+                      if(content==='video'){setUploadingVideo(progress)};
                       break;
                   default:
                       break;
@@ -101,7 +105,7 @@ const MyPostWidget = ({picturePath}) => {
         if(image){
             formData.append("picture", image);
             formData.append("picturePath", image.name);
-            formData.append("imageUrl",imageUrl)
+            formData.append("imageUrl",imageUrl);
         }
         if(video){
             console.log(videoUrl);
@@ -234,6 +238,13 @@ const MyPostWidget = ({picturePath}) => {
                 </Box>
             }
             
+            <div style={{margin:'10px'}}> 
+            {isVideo && uploadingVideo<100 && <div>Uploading Video ({Math.round(uploadingVideo)}%)</div>}
+            {isImage && uploadingImg<100 && <div>Uploading Image ({Math.round(uploadingImg)}%)</div>}
+            {isVideo && uploadingVideo==100 && <div>Video Uploaded</div>}
+            {isImage && uploadingImg==100 && <div> Image Uploaded</div>}
+            </div>
+        
             <Divider sx={{ margin: "1.25rem 0"}} />
 
             <FlexBetween>
@@ -256,6 +267,7 @@ const MyPostWidget = ({picturePath}) => {
                         Video
                     </Typography>
                 </FlexBetween>
+                
 
                  {isNonMobileScreens ? (
                     <>
@@ -281,7 +293,7 @@ const MyPostWidget = ({picturePath}) => {
                  )}
 
                  <Button
-                    disabled = {!post}
+                    disabled = {!post || uploadingImg<100 || uploadingVideo<100}
                     onClick = {handlePost}
                     sx={{
                         color: palette.background.alt,
@@ -292,6 +304,7 @@ const MyPostWidget = ({picturePath}) => {
                     POST
                  </Button>
             </FlexBetween>
+            
         </WidgetWrapper>
     )
 }

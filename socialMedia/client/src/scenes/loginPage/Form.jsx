@@ -73,6 +73,8 @@ const Form = () => {
     const [ pageType, setPageType ] = useState("login");
     const [ image, setImage ] = useState(null);
     const [ profileUrl, setProfileUrl ] = useState(""); //store firebase image url
+    const [progressPer, setProgressPer] = useState(0);
+
     const { palette } = useTheme();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -96,6 +98,7 @@ const Form = () => {
             (snapshot) => {
                 // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setProgressPer(progress);
                 console.log('Upload is ' +  progress + '% done');
               //   setVideoPerc(Math.round(progress));
                 switch (snapshot.state) {
@@ -316,9 +319,11 @@ const Form = () => {
                     </Box>
 
                     {/* BUTTONS */}
+                    {(progressPer<100  && !isLogin)&& <span>uploading...({progressPer}%)</span>}
                     <Box>
                         <Button
                             fullWidth
+                            disabled={!isLogin && progressPer<100}
                             type="submit"
                             sx={{
                                 m: "2rem 0",
