@@ -91,8 +91,8 @@ const MyPostWidget = ({picturePath}) => {
                   // Upload completed successfully, now we can get the download URL
                   getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     console.log('File available at', downloadURL);
-                    if(video) {setVideoUrl(downloadURL);}
-                    if(image) {setImageUrl(downloadURL);}
+                    if(video && content==='video') {setVideoUrl(downloadURL);}
+                    if(image && content==='image') {setImageUrl(downloadURL);}
                   });
               }
           );
@@ -124,6 +124,8 @@ const MyPostWidget = ({picturePath}) => {
         //reset after api call
         setIsImage(false);
         setIsVideo(false);
+        setVideoUrl("");
+        setImageUrl("");
         setImage(null);
         setVideo(null);
         setPost("");
