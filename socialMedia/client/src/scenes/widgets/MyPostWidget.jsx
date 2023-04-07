@@ -122,9 +122,13 @@ const MyPostWidget = ({picturePath}) => {
         console.log(posts);
         dispatch(setPosts({posts}));
         //reset after api call
+        setIsImage(false);
+        setIsVideo(false);
         setImage(null);
         setVideo(null);
         setPost("");
+        setUploadingImg(0);
+        setUploadingVideo(0);
     };
 
     return(
@@ -239,10 +243,10 @@ const MyPostWidget = ({picturePath}) => {
             }
             
             <div style={{margin:'10px'}}> 
-            {isVideo && uploadingVideo<100 && <div>Uploading Video ({Math.round(uploadingVideo)}%)</div>}
-            {isImage && uploadingImg<100 && <div>Uploading Image ({Math.round(uploadingImg)}%)</div>}
-            {isVideo && uploadingVideo==100 && <div>Video Uploaded</div>}
-            {isImage && uploadingImg==100 && <div> Image Uploaded</div>}
+            {video && uploadingVideo<100 && <div>Uploading Video ({Math.round(uploadingVideo)}%)</div>}
+            {image && uploadingImg<100 && <div>Uploading Image ({Math.round(uploadingImg)}%)</div>}
+            {video && uploadingVideo==100 && <div>Video Uploaded</div>}
+            {image && uploadingImg==100 && <div> Image Uploaded</div>}
             </div>
         
             <Divider sx={{ margin: "1.25rem 0"}} />
