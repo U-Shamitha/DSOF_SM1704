@@ -50,6 +50,7 @@ const MyPostWidget = ({picturePath}) => {
     const [desc,setDesc] = useState("");
     const [uploadingImg, setUploadingImg] = useState(0);
     const [uploadingVideo, setUploadingVideo] = useState(0);
+    const [enablePost, setEnablePost] = useState(false);
 
     useEffect(() => {
         video && uploadFile(video,'video');
@@ -79,8 +80,8 @@ const MyPostWidget = ({picturePath}) => {
                       break;
                   case 'running':
                       console.log('Upload is running');
-                      if(content==='image'){setUploadingImg(progress)};
-                      if(content==='video'){setUploadingVideo(progress)};
+                      if(content==='image'){setUploadingImg(progress);};
+                      if(content==='video'){setUploadingVideo(progress);};
                       break;
                   default:
                       break;
@@ -91,8 +92,8 @@ const MyPostWidget = ({picturePath}) => {
                   // Upload completed successfully, now we can get the download URL
                   getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     console.log('File available at', downloadURL);
-                    if(video && content==='video') {setVideoUrl(downloadURL);}
-                    if(image && content==='image') {setImageUrl(downloadURL);}
+                    if(video && content==='video') {setVideoUrl(downloadURL);setEnablePost(true)}
+                    if(image && content==='image') {setImageUrl(downloadURL);setEnablePost(true)}
                   });
               }
           );
@@ -299,7 +300,7 @@ const MyPostWidget = ({picturePath}) => {
                  )}
 
                  <Button
-                    disabled = {!post ||( image && uploadingImg<100) || (video && uploadingVideo<100)}
+                    disabled = {!post ||( image && uploadingImg<100) || (video && uploadingVideo<100) || !enablePost}
                     onClick = {handlePost}
                     sx={{
                         color: palette.background.alt,
