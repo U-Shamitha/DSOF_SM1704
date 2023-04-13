@@ -12,6 +12,7 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import LeftSideBarMenu from './components/LeftSidebar/LeftSideBarMenu ';
 import Payment from './pages/Payment1/Payment';
 import OpenaiChatbot from './pages/Chatbot/OpenaiChatbot';
+import Community from './pages/Community/Community';
 
 const AllRoutes = () => {
   return (
@@ -29,6 +30,7 @@ const AllRoutes = () => {
       <Route path="/Chatbot" element={<OpenaiChatbot/>} />
       <Route path="/Users/:id" element={<UserProfile />} />
       <Route path="/LeftSideBarMenu" element={<LeftSideBarMenu/>}/>
+      <Route path="/Community" element={<Community/>}/>
 
 
       //social media
