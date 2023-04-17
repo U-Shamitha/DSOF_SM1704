@@ -10,6 +10,9 @@ import { setCurrentUser } from './actions/CurrentUser';
 import { fetchAllQuestions } from './actions/question';
 import { fetchAllUsers } from './actions/users';
 
+// import Appsm from 'socialMedia/Appsm';
+
+
 function App() {
 
   const dispatch = useDispatch()
@@ -27,6 +30,7 @@ function App() {
       <Router>
         <Navbar />
         <AllRoutes />
+        {/* <Appsm/> */}
       </Router>
   
     </div>

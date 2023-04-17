@@ -11,7 +11,7 @@ import { HashRouter } from 'react-router-dom';
 
 //sm
 import './index.css';
-import authReducer from './socialMedia/state';
+import authReducer from './state';
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
