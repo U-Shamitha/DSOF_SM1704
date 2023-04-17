@@ -52,8 +52,8 @@ const upload = multer({ storage }); // the varaiable will be used whenever we wa
 
 // ROUTES WITH FILES
 
-app.post("/auth/register", upload.single("picture"), register );
-app.post("/posts", verifyToken, upload.single("picture"), createPost);
+app.post("/auth/register", cors(),upload.single("picture"), register );
+app.post("/posts", verifyToken, cors(), upload.single("picture"), createPost);
 app.get("/userPost/:postId", getUserPost);
 
 
