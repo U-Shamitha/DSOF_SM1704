@@ -14,7 +14,7 @@ const server = 'https://socialmedia-server-k22t.onrender.com';
 const ProfilePage = () => {
 const [user, setUser] = useState(null);
 const{ userId } = useParams();
-const token = useSelector((state) => state.token );
+const token = JSON.parse(localStorage.getItem('token_sm'));
 const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
 const getUser = async () => {
