@@ -81,7 +81,7 @@ const Navbar = () => {
         fontWeight = "bold"
         fontSize = "clamp(1rem,2rem, 2.25rem)" //min preferred max
         color = 'primary'
-        onClick = {() => navigate("/Community/sm/home")}
+        onClick = {() => {navigate("/Community/sm/home");navigate(0);}}
         sx={{
           "&:hover":{
             color: primaryLight,
