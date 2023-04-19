@@ -93,8 +93,24 @@ const Friend = ({ friendId, name, subtitle, userPicturePath,userProfileUrl, isUs
         // console.log("in user: "+data)
     };
 
+    const getFriends = async() => {
+        const response = await fetch(
+            `${server}/users/${userId}/friends`,
+            {
+                method: "GET",
+                headers: { Authorization: `Bearer ${token}`}
+            }
+        );
+        const data = await response.json();
+        console.log(data);
+        dispatch({type:'SETFRIENDS_SM', payload: {friends_sm : data}});
+        setFriends(data);
+    };
+
+
     useEffect(()=> {
         getUser();
+        getFriends();
     },[])
 
     return (
