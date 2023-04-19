@@ -93,7 +93,7 @@ const PostWidget =({
         console.log(data);
         dispatch({type:'SETPOSTS_SM', payload: {posts_sm: data}}); 
         setPosts(data);
-        navigate(0);   
+        // navigate(0);   
     }
 
     return (

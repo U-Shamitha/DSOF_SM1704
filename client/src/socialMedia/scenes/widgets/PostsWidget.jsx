@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "socialMedia/state";
 import PostWidget from './PostWidget';
 import stateReducer from "reducers/state_sm";
+import {useNavigate } from "react-router-dom";
 
 const server = 'https://socialmedia-server-k22t.onrender.com';
 
 const PostsWidget = ({ userId, isProfile = false, isUser}) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     // const posts = useSelector((state) => state.posts);
     const [posts_sm, setPosts] = useState(useSelector((state) => stateReducer)?.posts_sm);
     console.log(posts_sm)
@@ -29,6 +31,7 @@ const PostsWidget = ({ userId, isProfile = false, isUser}) => {
         console.log(data);
         dispatch({type:'SETPOSTS_SM', payload: {posts_sm: data}}); 
         setPosts(data);
+        navigate(0);
         
     }
 
