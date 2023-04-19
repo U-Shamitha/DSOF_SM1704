@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Avatar = ({children,backgroundColor,px,py,color,borderRadius,fontSize, cursor}) => {
+const AvatarUserProfile = ({children,backgroundColor,px,py,color,borderRadius,fontSize, cursor}) => {
 
     const style = {
       backgroundColor,
-      padding: `${py} ${px}`,
+      padding: '10px 50px 70px 30px',
       color: color || 'black',
       borderRadius,
       fontSize,
@@ -22,4 +22,4 @@ const Avatar = ({children,backgroundColor,px,py,color,borderRadius,fontSize, cur
     )
 }
 
-export default Avatar;
+export default AvatarUserProfile ;

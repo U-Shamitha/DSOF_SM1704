@@ -11,6 +11,7 @@ import Avatar from '../../components/Avatar/Avatar'
 import EditProfileForm from './EditProfileForm'
 import ProfileBio from './ProfileBio'
 import './UserProfile.css'
+import AvatarUserProfile from 'components/Avatar/AvatarUserProfile'
 
 
 const UserProfile = () => {
@@ -30,10 +31,10 @@ const [Switch, setSwitch] = useState(false);
         <section>
             <div className="user-details-container">
                 <div className='user-details'>
-                    <Avatar  backgroundColor="purple"  borderRadius="2px"  color='white' fontSize='50px' px='40px' py='40px' > 
+                    <AvatarUserProfile  backgroundColor="purple"  borderRadius="2px"  color='white' fontSize='50px' px='40px' py='60px' > 
                         {currentProfile?.name.charAt(0).toUpperCase()}
-                     </Avatar>
-                     <div className='user-name' >
+                     </AvatarUserProfile>
+                     <div className='user-name'>
                        <h1>{currentProfile.name}</h1>
                        <p> <FontAwesomeIcon icon ={faBirthdayCake} /> Joined {moment(currentProfile?.joinedOn).fromNow()}</p>
                      </div>
