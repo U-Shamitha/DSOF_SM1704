@@ -95,7 +95,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath,userProfileUrl, isUs
 
     const getFriends = async() => {
         const response = await fetch(
-            `${server}/users/${userId}/friends`,
+            `${server}/users/${_id}/friends`,
             {
                 method: "GET",
                 headers: { Authorization: `Bearer ${token}`}
