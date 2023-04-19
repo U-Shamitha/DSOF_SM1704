@@ -59,7 +59,8 @@ const PostWidget =({
     const navigate = useNavigate();
 
     // const deployingClientUrl = `http://localhost:3000`
-    const deployingClientUrl = `https://socialmedia-client-snyv.onrender.com`
+    // const deployingClientUrl = `https://socialmedia-client-snyv.onrender.com`
+    const deployingClientUrl = `https://stackoverflow-sm-client.onrender.com/Community/sm`
  
     const handleShare = () => {
         copy(deployingClientUrl+"/userPost/"+ postId);

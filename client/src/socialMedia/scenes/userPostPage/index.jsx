@@ -114,6 +114,7 @@ if(!post) {return null};
               description = {post.description}
               location = {post.location}
               picturePath = {post.picturePath}
+              imageUrl={post.imageUrl}
               videoUrl={post.videoUrl}
               userPicturePath = {post.userPicturePath}
               userProfileUrl={post.userProfileUrl}

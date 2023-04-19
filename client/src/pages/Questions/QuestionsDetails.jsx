@@ -77,7 +77,8 @@ const QuestionsDetails = () => {
     const dispatch = useDispatch();
     const User = useSelector((state) => (state.currentUserReducer));
     const location = useLocation(); // console.log(location);
-    const url = "https://stackoverflow-client-kgjp.onrender.com"
+    // const url = "https://stackoverflow-client-kgjp.onrender.com"
+    const url = "https://stackoverflow-sm-client.onrender.com"
 
     const handlePostAns = (e, answerLength) => {
         e.preventDefault();
@@ -86,7 +87,7 @@ const QuestionsDetails = () => {
             navigate('/Auth')
         }else{
             if(Answer === ''){
-                alert('Enetr an answer before submitting')
+                alert('Enter an answer before submitting')
             }else{
                 dispatch(postAnswer({id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name, userId: User.result._id}))
             }
