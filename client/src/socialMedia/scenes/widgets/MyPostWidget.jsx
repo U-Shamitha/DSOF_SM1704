@@ -24,6 +24,7 @@ import UserImage from 'socialMedia/components/UserImage';
 import WidgetWrapper from 'socialMedia/components/WidgetWrapper';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setPosts } from '../../state';
 import VideoUpload from './VideoUpload';
 import stateReducer from 'reducers/state_sm';
@@ -31,10 +32,12 @@ import stateReducer from 'reducers/state_sm';
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
+
 const server = 'https://socialmedia-server-k22t.onrender.com';
 
 const MyPostWidget = ({picturePath}) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [isImage, setIsImage] = useState(false);
     const [image,setImage] = useState(null);
     const [post,setPost] = useState("");
@@ -126,6 +129,7 @@ const MyPostWidget = ({picturePath}) => {
         const posts = await response.json();
         console.log(posts);
         dispatch({type:'SETPOSTS_SM', payload: {posts_sm: posts}});
+        navigate(0);
         //reset after api call
         setIsImage(false);
         setIsVideo(false);

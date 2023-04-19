@@ -25,6 +25,8 @@
     max-width: 100%;
     background-color: #fff;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   
   .spotlight__wrapper:hover,
