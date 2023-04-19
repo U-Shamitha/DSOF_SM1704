@@ -31,7 +31,6 @@ const PostsWidget = ({ userId, isProfile = false, isUser}) => {
         console.log(data);
         dispatch({type:'SETPOSTS_SM', payload: {posts_sm: data}}); 
         setPosts(data);
-        navigate(0);
         
     }
 
