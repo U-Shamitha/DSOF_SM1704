@@ -14,7 +14,7 @@ import { useState } from 'react';
 
 const HomePage = () => {
 const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
-const user_sm = JSON.parse(localStorage.getItem('user_sm'));
+const user_sm = JSON.parse(localStorage.getItem('user_sm')) || undefined;
 console.log('user_sm');
 console.log(user_sm);
 const _id = user_sm?._id;
