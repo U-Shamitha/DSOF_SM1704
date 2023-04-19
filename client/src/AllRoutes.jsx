@@ -33,7 +33,7 @@ const AllRoutes = () => {
 
   const theme = useMemo(() => createTheme(themeSettings('light')),['light']);
 
-  let isAuth = JSON.parse(localStorage.getItem('token_sm')) || undefined;//sm
+  let isAuth = JSON.parse(localStorage.getItem('token_sm'));//sm
   console.log('isAuth');
   console.log(isAuth);
   // isAuth = isAuth ? isAuth.token_sm : undefined;
