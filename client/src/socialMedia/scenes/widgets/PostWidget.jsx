@@ -92,7 +92,8 @@ const PostWidget =({
         const data = await response.json();
         console.log(data);
         dispatch({type:'SETPOSTS_SM', payload: {posts_sm: data}}); 
-        setPosts(data);   
+        setPosts(data);
+        navigate(0);   
     }
 
     return (
