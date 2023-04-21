@@ -221,7 +221,7 @@ const Navbar = () => {
                   <MenuItem value={fullName}>
                     <Typography>{fullName}</Typography>
                   </MenuItem>
-                  <MenuItem onClick={()=> {navigate('/Community');dispatch({type:'SETLOGOUT_SM'});}}>Log Out</MenuItem>
+                  <MenuItem onClick={()=> {navigate(0);dispatch({type:'SETLOGOUT_SM'});}}>Log Out</MenuItem>
 
               </Select>
 

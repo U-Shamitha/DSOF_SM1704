@@ -180,7 +180,7 @@ const Form = () => {
             dispatch( {type: 'LOGIN_SM', payload:{user_sm: loggedIn.user,token_sm: loggedIn.token}})
             
             console.log('after dispatch set login');
-            navigate("/Community");
+            navigate(0);
         }
 
     }
