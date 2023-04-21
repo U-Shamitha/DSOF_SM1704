@@ -60,7 +60,7 @@ const AllRoutes = () => {
 
         //sm
         <Route path="/Community/sm" element={<Community />} />
-        <Route path="/Community/sm/home" element={Boolean(isAuth) ? <CommunityHome/> : <Navigate to="/Community/sm" />} />
+        <Route path="/Community/sm/home" element={Boolean(isAuth) ? <CommunityHome/> : <Navigate to="/Community" />} />
         <Route path="/Community/sm/profile/:userId" element={<Profile />} />
         <Route path="/Community/sm/userPost/:postId" element={<UserPost />} />
         
