@@ -56,11 +56,12 @@ const AllRoutes = () => {
         <Route path="/Chatbot" element={<OpenaiChatbot/>} />
         <Route path="/Users/:id" element={<UserProfile />} />
         <Route path="/LeftSideBarMenu" element={<LeftSideBarMenu/>}/>
-        <Route path="/Community" element={<Community/>}/>
+        {/* <Route path="/Community" element={<Community/>}/> */}
 
         //sm
-        <Route path="/Community/sm" element={<Community />} />
-        <Route path="/Community/sm/home" element={Boolean(isAuth) ? <CommunityHome/> : <Navigate to="/Community" />} />
+        {/* <Route path="/Community/sm" element={<Community />} /> */}
+        {/* <Route path="/Community/sm/home" element={Boolean(isAuth) ? <CommunityHome/> : <Navigate to="/Community" />} /> */}
+        <Route path="/Community" element={Boolean(isAuth) ? <CommunityHome/> : <Community/>} />
         <Route path="/Community/sm/profile/:userId" element={<Profile />} />
         <Route path="/Community/sm/userPost/:postId" element={<UserPost />} />
         
